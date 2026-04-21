@@ -1,5 +1,6 @@
 import { Shor4Navbar } from "@/components/shor4/shor4-navbar";
 import { Shor4Hero } from "@/components/shor4/shor4-hero";
+import { Shor4Brands } from "@/components/shor4/shor4-brands";
 import { Shor4Products } from "@/components/shor4/shor4-products";
 import { Shor4Market } from "@/components/shor4/shor4-market";
 import { Shor4CTA } from "@/components/shor4/shor4-cta";
@@ -17,6 +18,7 @@ export default function Shor4Page() {
       <Shor4Navbar />
       <main>
         <Shor4Hero />
+        <Shor4Brands />
         <Shor4Products />
         <Shor4Market />
         <Shor4CTA />

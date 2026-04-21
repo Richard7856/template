@@ -46,7 +46,7 @@ export function Shor4Footer() {
         <div className="mt-16 select-none overflow-hidden">
           <div
             aria-hidden
-            className="whitespace-nowrap text-[18vw] font-bold leading-[0.85] tracking-[-0.06em] text-white/[0.04] sm:text-[16vw] lg:text-[14vw]"
+            className="whitespace-nowrap text-[18vw] font-bold leading-[0.85] tracking-[-0.06em] text-white/[0.09] sm:text-[16vw] lg:text-[14vw]"
           >
             SHOR<span className="text-amber-400/30">4</span>.
           </div>

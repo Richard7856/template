@@ -1,38 +1,34 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight, TrendingUp } from "lucide-react";
 import Link from "next/link";
-import { Shor4Logo } from "./shor4-logo";
 
 export function Shor4Hero() {
   return (
     <section className="relative min-h-screen bg-[#0A0A0A] overflow-hidden flex items-center pt-16">
-      {/* Amber glow radial — top-right */}
+      {/* Amber glow */}
       <div
         aria-hidden
-        className="pointer-events-none absolute -top-40 -right-40 h-[700px] w-[700px] rounded-full opacity-20"
-        style={{
-          background:
-            "radial-gradient(closest-side, #F59E0B, transparent 70%)",
-        }}
+        className="pointer-events-none absolute -top-40 right-0 h-[600px] w-[600px] rounded-full opacity-15"
+        style={{ background: "radial-gradient(closest-side, #F59E0B, transparent 70%)" }}
       />
-      {/* Subtle grid */}
+      {/* Grid */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-[0.04]"
+        className="pointer-events-none absolute inset-0 opacity-[0.03]"
         style={{
-          backgroundImage:
-            "radial-gradient(circle at 1px 1px, white 1px, transparent 0)",
+          backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)",
           backgroundSize: "32px 32px",
         }}
       />
 
-      <div className="mx-auto max-w-7xl px-6 py-24 w-full">
-        <div className="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:items-center">
-          {/* Left */}
+      <div className="mx-auto max-w-7xl px-6 py-16 w-full">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">
+
+          {/* Left — copy */}
           <div>
-            {/* Eyebrow */}
             <motion.div
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
@@ -45,7 +41,6 @@ export function Shor4Hero() {
               </span>
             </motion.div>
 
-            {/* Headline */}
             <motion.h1
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
@@ -66,30 +61,22 @@ export function Shor4Hero() {
             >
               Turn every match into a{" "}
               <span className="text-white/80">high-impact advertising campaign</span>.
-              Custom rackets, balls, bags, grips and accessories — fully branded
-              with your logo.
+              Custom rackets, balls, bags, grips and accessories — fully branded with your logo.
             </motion.p>
 
-            {/* Products row */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.28 }}
               className="mt-6 flex flex-wrap gap-2"
             >
-              {["Rackets", "Balls", "Sports bags", "Frame protectors", "Grips"].map(
-                (p) => (
-                  <span
-                    key={p}
-                    className="rounded-full border border-white/10 px-3 py-1 text-xs text-white/40"
-                  >
-                    {p}
-                  </span>
-                )
-              )}
+              {["Rackets", "Balls", "Sports bags", "Frame protectors", "Grips"].map((p) => (
+                <span key={p} className="rounded-full border border-white/10 px-3 py-1 text-xs text-white/40">
+                  {p}
+                </span>
+              ))}
             </motion.div>
 
-            {/* CTAs */}
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
@@ -103,78 +90,65 @@ export function Shor4Hero() {
                 Request a personalization quote
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </Link>
-              <Link
-                href="#products"
-                className="text-sm text-white/40 hover:text-white transition-colors"
-              >
+              <Link href="#products" className="text-sm text-white/40 hover:text-white transition-colors">
                 View catalog →
               </Link>
             </motion.div>
+
+            {/* Tagline */}
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="mt-10 font-mono text-xs tracking-[0.22em] uppercase text-white/20"
+            >
+              Padel is the new Golf for closing deals
+            </motion.p>
           </div>
 
-          {/* Right — stats card + logo */}
+          {/* Right — real product photo + stats */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.97 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex flex-col gap-5"
+            className="relative"
           >
-            {/* Big logo */}
-            <div className="flex justify-center">
-              <div className="relative flex items-center justify-center">
-                <div
-                  aria-hidden
-                  className="absolute h-64 w-64 rounded-full opacity-15"
-                  style={{
-                    background:
-                      "radial-gradient(closest-side, #F59E0B, transparent)",
-                  }}
-                />
-                <Shor4Logo size={160} />
-              </div>
+            {/* Hero product shot */}
+            <div className="relative overflow-hidden rounded-3xl border border-white/10">
+              <Image
+                src="/shor4/products/hero-shot.png"
+                alt="SHOR4 Signature Series — racket, bag, balls and accessories"
+                width={695}
+                height={1244}
+                className="w-full object-cover"
+                priority
+              />
+              {/* Gradient overlay bottom for stats card */}
+              <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-[#0A0A0A] to-transparent" />
             </div>
 
-            {/* Stats card */}
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur">
-              <div className="flex items-center gap-2 text-amber-400">
-                <TrendingUp className="h-4 w-4" />
-                <span className="font-mono text-xs tracking-widest uppercase">
+            {/* Floating stats card */}
+            <div className="absolute bottom-5 left-5 right-5 rounded-2xl border border-white/10 bg-black/80 backdrop-blur p-5">
+              <div className="flex items-center gap-2 text-amber-400 mb-3">
+                <TrendingUp className="h-3.5 w-3.5" />
+                <span className="font-mono text-[10px] tracking-[0.2em] uppercase">
                   Explosive Growth Worldwide
                 </span>
               </div>
-              <h2 className="mt-3 text-xl font-bold text-white">
-                Padel around the world
-              </h2>
-              <p className="mt-2 text-sm leading-relaxed text-white/40">
-                Analyzing and participating in its sponsorship ecosystem is
-                fundamental today. Your brand won&apos;t just be present — it will be
-                the center of attention for new generations.
-              </p>
-              <div className="mt-5 flex gap-8">
+              <div className="flex gap-8">
                 <div>
-                  <div className="font-mono text-3xl font-bold text-amber-400">
-                    +300%
-                  </div>
-                  <div className="mt-1 font-mono text-xs tracking-widest text-white/30 uppercase">
-                    New courts
-                  </div>
+                  <div className="font-mono text-2xl font-bold text-amber-400">+300%</div>
+                  <div className="font-mono text-[10px] tracking-widest text-white/30 uppercase mt-1">New courts</div>
                 </div>
                 <div>
-                  <div className="font-mono text-3xl font-bold text-white">
-                    Top 1
-                  </div>
-                  <div className="mt-1 font-mono text-xs tracking-widest text-white/30 uppercase">
-                    Social sport
-                  </div>
+                  <div className="font-mono text-2xl font-bold text-white">Top 1</div>
+                  <div className="font-mono text-[10px] tracking-widest text-white/30 uppercase mt-1">Social sport</div>
+                </div>
+                <div>
+                  <div className="font-mono text-2xl font-bold text-white">48h</div>
+                  <div className="font-mono text-[10px] tracking-widest text-white/30 uppercase mt-1">Production start</div>
                 </div>
               </div>
-            </div>
-
-            {/* Divider tagline */}
-            <div className="text-center">
-              <span className="font-mono text-xs tracking-[0.25em] uppercase text-white/20">
-                Padel is the new Golf for closing deals
-              </span>
             </div>
           </motion.div>
         </div>
